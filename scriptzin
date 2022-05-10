@@ -1,0 +1,56 @@
+def formula_media():
+    print ("media aritimetica ok")
+    numerosdaaritimetica = []
+
+def formlaMediaPonderada ():
+    print ("media ponderada ok")
+
+
+def formulaMedida ():
+    print ("calculo da media harmonica")
+
+
+def menuDeSelecao ():
+    media= 'h'
+    mediaponderada= 'a'
+    medida= 'x'
+    print ("||| SELECIONE A OPÇÃO |||")
+    print ("Para Media aritimetica digite (H)")
+    print ("Para Media ponderada digite (A)")
+    print ("Para Media harmonica digite (X)")
+    escolha= str(input("Insira sua opção: "))
+    
+    if escolha in media:
+        print ("fomula media aritimetica")
+        formula_media ()
+    elif escolha in mediaponderada:
+        print ("media ponderada")
+        formlaMediaPonderada ()
+    elif escolha in medida:
+        print ("medida")
+        formulaMedida ()
+
+nomeDoUsuario = str(input("Insira seu nome: "))
+
+print ("||| BEM VINDO {} ||| " .format(nomeDoUsuario))
+
+while True:
+    menuDeSelecao ()
+    
+    print ("||| DESEJA CONTINUAR?||| \n\n")
+    print ("||| PARA CONTINUAR DIGITE (S) ||| PARA SAIR DIGITE (N) |||")
+    
+    seguir = True
+    while True:
+        continuar= str(input("INSIRA SUA ESCOLHA: "))
+        if continuar == 's':
+            break
+        elif continuar == 'n':
+            print ("Obrigado por utlizar nosso script\n")
+            seguir = False
+            break
+        else: 
+            print ("!!! OPCAO INVALIDA !!!")
+            continue
+    if seguir == False:
+        break
