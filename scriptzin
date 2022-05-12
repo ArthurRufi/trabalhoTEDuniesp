@@ -1,86 +1,113 @@
 from statistics import harmonic_mean
+import os
 
 
-def formula_media():
-    print ("SELECIONADO: Media Aritimetica.\n")
-    numerosdaaritimetica =  []
-    qtdDenumeros = 3
-    for i in range (qtdDenumeros):
-        numeroinserido= float(input("Insira um numero: "))
-        numerosdaaritimetica.append (numeroinserido)
-        soma1= sum(numerosdaaritimetica)
-        aritimeticaresult= soma1 / qtdDenumeros
+def formulaaritimetica():
+    print("SELECIONADO: Media Aritimetica.\n")
+    numerosdaaritimetica = []
+    qtddenumeros: int = 3
+    aritimeticaresult = 0
+    for i in range(qtddenumeros):
+        numeroinserido = float(input("Insira um numero: "))
+        numerosdaaritimetica.append(numeroinserido)
+        soma1 = sum(numerosdaaritimetica)
+        aritimeticaresult = soma1 / qtddenumeros
 
-    print (numerosdaaritimetica)
-    print (soma1)
-    print ("Resultado da Media Aritimetica: %.2f" %(aritimeticaresult))
+    print("Numeros Digitados", numerosdaaritimetica)
+    print("||| Resultado da Media Aritimetica: %.2f |||" % aritimeticaresult)
+    return
 
-def formlaMediaPonderada ():
-    print ("SELECIONADO: Media Ponderada.\n")
-    qtdDenumeros = 3
-    numeropeso5= float(input("Insira o numero com peso 5: ")) 
-    numeropeso3= float(input("Insira o numero com peso 3: "))
-    numeropeso2= float(input("Insira o numero com peso 2: "))
-    numerosparasoma= (numeropeso5 * 5), (numeropeso3 * 3), (numeropeso2 * 2)
 
-    ponderadaresult = (sum(numerosparasoma)) / qtdDenumeros
-    print ("Resultado da Media Ponderada: %.2f" %(ponderadaresult))
+def formulamediaponderada():
+    print("SELECIONADO: Media Ponderada.\n")
+    qtddenumeros = 3
+    numeropeso5 = float(input("Insira o numero com peso 5: "))
+    numeropeso3 = float(input("Insira o numero com peso 3: "))
+    numeropeso2 = float(input("Insira o numero com peso 2: "))
+    numerosparasoma = (numeropeso5 * 5), (numeropeso3 * 3), (numeropeso2 * 2)
+    ponderadaresult = (sum(numerosparasoma)) / qtddenumeros
+    print("Resultado da Media Ponderada: %.2f" % ponderadaresult)
+    return
 
-def formulaMedida ():
-    print ("SELECIONADO: Calculo de Media Harmonica.\n")
-    nmDaHarmonica= []
-    qtdDeNumeros= 3
+
+def formulaharmonica():
+    print("SELECIONADO: Calculo de Media Harmonica.\n")
+    nmdaharmonica = []
+    qtddenumeros = 3
     harmonicaresult = float
-    for i in range (qtdDeNumeros):
-        numeroInserido= float(input("Insira um numero: "))
-        nmDaHarmonica.append (numeroInserido)
-        soma= sum(nmDaHarmonica)
-        harmonicaresult = (harmonic_mean(nmDaHarmonica))
+    for i in range(qtddenumeros):
+        numeroinserido = float(input("Insira um numero: "))
+        nmdaharmonica.append(numeroinserido)
+        harmonicaresult = (harmonic_mean(nmdaharmonica))
 
-    print ("Resultado da media harmonica: %.2f" %(harmonicaresult))
+    print("Resultado da media harmonica: %.2f" % harmonicaresult)
+    return
 
 
-def menuDeSelecao ():
-    media= 'h' "H"
-    mediaponderada= 'a' "A"
-    medida= 'x' "X"
-    print ("||| SELECIONE A OPÇÃO |||")
-    print ("Para Media aritimetica digite (H)")
-    print ("Para Media ponderada digite (A)")
-    print ("Para Media harmonica digite (X)")
-    escolha= str(input("Insira sua opção: "))
-    
-    if escolha in media:
-        print ("fomula media aritimetica")
-        formula_media ()
-    elif escolha in mediaponderada:
-        print ("media ponderada")
-        formlaMediaPonderada ()
-    elif escolha in medida:
-        print ("medida")
-        formulaMedida ()
+def menudeselecao():
+    print("||| MENU DE SELEÇÃO |||\n||| OPÇÕES: ")
+    print("Media aritimetica: digite (A)")
+    print("Media ponderada: digite (P)")
+    print("Media harmonica: digite (H)")
+    artimetica = "a" "A"
+    ponderada = "p" "P"
+    harmonica = "h" "H"
+    while True:
+        escolha = str(input("Insira sua opção: "))
+
+        if escolha in artimetica:
+            formulaaritimetica()
+            break
+        elif escolha in ponderada:
+            formulamediaponderada()
+            break
+        elif escolha in harmonica:
+            formulaharmonica()
+            break
+        else:
+            print("||| Opção Invalida!!! |||")
+            continue
+
+
+def instrucoes():
+    print("LEIA COM ATENÇÃO")
+    print("USAR PONTO (.) NO LUGAR DA VIRGULA\nEXEMPLO: 1,0 = ERRO ||| 1.0 = prosseguir")
+    input("Precione a tecla |ENTER ↵| para continuar\n\n\n")
+
 
 nomeDoUsuario = str(input("Insira seu nome: "))
+nomeDoUsuariocxplus = nomeDoUsuario.upper()
+print("||| BEM VINDO {} ||| ".format(nomeDoUsuariocxplus))
 
-print ("||| BEM VINDO {} ||| " .format(nomeDoUsuario))
-
+seguir = 1
 while True:
-    menuDeSelecao ()
-    
-    print ("||| DESEJA CONTINUAR?||| \n\n")
-    print ("||| PARA CONTINUAR DIGITE (S) ||| PARA SAIR DIGITE (N) |||")
-    
-    seguir = True
+
+    escolha1 = "s", 'S'
+    escolha2 = "n", "N"
+    msg1 = 1
+    if msg1 == 1:
+        instrucoes()
+        msg1 += 1
+    menudeselecao()
+
+    print("||| DESEJA CONTINUAR?||| \n\n")
+    print("||| PARA CONTINUAR DIGITE (S) ||| PARA SAIR DIGITE (N) |||")
+
     while True:
-        continuar= str(input("INSIRA SUA ESCOLHA: "))
-        if continuar == 's':
+        continuar = str(input("INSIRA SUA ESCOLHA: "))
+        if continuar in escolha1:
+            print("\n" * os.get_terminal_size().lines)
             break
-        elif continuar == 'n':
-            print ("Obrigado por utlizar nosso script\n")
-            seguir = False
+
+        elif continuar in escolha2:
+            print("Obrigado por utlizar esse script")
+            seguir += 1
             break
-        else: 
-            print ("!!! OPCAO INVALIDA !!!")
+        else:
+            print("!!! OPCAO INVALIDA !!!")
             continue
-    if seguir == False:
+
+    if seguir > 1:
         break
+
+print("\n\n\n\n\n Desenvolvedor: Arthur Alves Rufino Santana \n email: temparthur87@gmail.com")
