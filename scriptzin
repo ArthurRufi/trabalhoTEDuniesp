@@ -1,19 +1,49 @@
+from statistics import harmonic_mean
+
+
 def formula_media():
-    print ("media aritimetica ok")
-    numerosdaaritimetica = []
+    print ("SELECIONADO: Media Aritimetica.\n")
+    numerosdaaritimetica =  []
+    qtdDenumeros = 3
+    for i in range (qtdDenumeros):
+        numeroinserido= float(input("Insira um numero: "))
+        numerosdaaritimetica.append (numeroinserido)
+        soma1= sum(numerosdaaritimetica)
+        aritimeticaresult= soma1 / qtdDenumeros
+
+    print (numerosdaaritimetica)
+    print (soma1)
+    print ("Resultado da Media Aritimetica: %.2f" %(aritimeticaresult))
 
 def formlaMediaPonderada ():
-    print ("media ponderada ok")
+    print ("SELECIONADO: Media Ponderada.\n")
+    qtdDenumeros = 3
+    numeropeso5= float(input("Insira o numero com peso 5: ")) 
+    numeropeso3= float(input("Insira o numero com peso 3: "))
+    numeropeso2= float(input("Insira o numero com peso 2: "))
+    numerosparasoma= (numeropeso5 * 5), (numeropeso3 * 3), (numeropeso2 * 2)
 
+    ponderadaresult = (sum(numerosparasoma)) / qtdDenumeros
+    print ("Resultado da Media Ponderada: %.2f" %(ponderadaresult))
 
 def formulaMedida ():
-    print ("calculo da media harmonica")
+    print ("SELECIONADO: Calculo de Media Harmonica.\n")
+    nmDaHarmonica= []
+    qtdDeNumeros= 3
+    harmonicaresult = float
+    for i in range (qtdDeNumeros):
+        numeroInserido= float(input("Insira um numero: "))
+        nmDaHarmonica.append (numeroInserido)
+        soma= sum(nmDaHarmonica)
+        harmonicaresult = (harmonic_mean(nmDaHarmonica))
+
+    print ("Resultado da media harmonica: %.2f" %(harmonicaresult))
 
 
 def menuDeSelecao ():
-    media= 'h'
-    mediaponderada= 'a'
-    medida= 'x'
+    media= 'h' "H"
+    mediaponderada= 'a' "A"
+    medida= 'x' "X"
     print ("||| SELECIONE A OPÇÃO |||")
     print ("Para Media aritimetica digite (H)")
     print ("Para Media ponderada digite (A)")
